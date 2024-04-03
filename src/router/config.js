@@ -47,4 +47,26 @@ export const constantRoutes = [
         path: '/404',
         component: () => import('@/views/exception/404.vue'),
     },
+    {
+        path: '/setting',
+        component: layouts.BasicLayout,
+        meta: {
+            breadcrumb: [{ name: 'setting' }],
+        },
+        children: [
+            {
+                path: '',
+                name: 'setting',
+                component: () => import('@/views/admin/setting/index.vue'),
+                meta: {
+                    title: '个人设置',
+                    isMenu: false,
+                    keepAlive: false,
+                    permission: '*',
+                    active: 'setting',
+                    openKeys: 'setting',
+                },
+            },
+        ],
+    },
 ]
